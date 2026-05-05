@@ -2,13 +2,11 @@ name: 每日興櫃篩選
 
 on:
   schedule:
-    # 每日台灣時間 16:30 執行（收盤後）
-    # cron 使用 UTC 時區，台灣 = UTC+8，所以 16:30 台灣 = 08:30 UTC
-    - cron: '30 8 * * 1-5'   # 週一至週五
-  workflow_dispatch:          # 允許手動觸發
+    - cron: '30 8 * * 1-5'   # 台灣時間週一至週五 16:30
+  workflow_dispatch:
 
 permissions:
-  contents: write   # 允許 push results.json 回 repo
+  contents: write
 
 jobs:
   screen:
@@ -17,19 +15,34 @@ jobs:
 
     steps:
       - name: 取得原始碼
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: 設定 Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v6
         with:
-          python-version: '3.11'
+          python-version: '3.12'
+
+      - name: 安裝相依套件
+        run: |
+          pip install requests
 
       - name: 執行篩選
         run: |
           python screener.py
-          echo "✅ 篩選完成"
+        continue-on-error: false
+
+      - name: 顯示結果預覽
+        if: always()
+        run: |
+          if [ -f results.json ]; then
+            echo "✅ results.json 已生成"
+            python -c "import json; d=json.load(open('results.json')); print(f'共篩 {d[\"totalScreened\"]} 支，{d[\"totalPassed\"]} 支通過')"
+          else
+            echo "❌ results.json 未生成"
+          fi
 
       - name: 提交結果
+        if: success()
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
