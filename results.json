@@ -1,0 +1,20 @@
+{
+  "generatedAt": "2026-05-05 13:45:02",
+  "elapsedSec": 114,
+  "totalScreened": 0,
+  "totalPassed": 0,
+  "params": {
+    "pWin": 0.55,
+    "gainMult": 1.5,
+    "stopPct": 0.15,
+    "mdd": 0.1,
+    "capital": 1000000,
+    "maxPosPct": 0.3,
+    "priceRatioMax": 1.05,
+    "top10MinPct": 40.0,
+    "chipScoreMin": 2,
+    "holderField": "外資持股比例"
+  },
+  "passed": [],
+  "all": []
+}
