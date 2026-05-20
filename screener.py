@@ -95,13 +95,55 @@ def fv(*vals):
 #  資料抓取
 # ═══════════════════════════════════════════════════
 
+def get_psb_stock_ids():
+    """從櫃買中心取得戰略新板股票代號清單"""
+    print("  ↳ 取得戰略新板清單以排除...", flush=True)
+    url = "https://www.tpex.org.tw/openapi/v1/tpex_psb_listing_companies"
+    try:
+        req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"})
+        with urllib.request.urlopen(req, timeout=15) as r:
+            data = json.loads(r.read().decode("utf-8"))
+            if isinstance(data, list):
+                psb_ids = set()
+                for r in data:
+                    # 嘗試不同欄位名
+                    sid = (r.get("SecuritiesCompanyCode") or r.get("stockNo")
+                           or r.get("公司代號") or r.get("Code") or "")
+                    if sid:
+                        psb_ids.add(str(sid).strip())
+                print(f"  ↳ 找到 {len(psb_ids)} 支戰略新板股票", flush=True)
+                return psb_ids
+    except Exception as e:
+        print(f"  ⚠ 無法取得戰略新板清單：{e}", flush=True)
+        print(f"  ↳ 改用代號規則辨識（5 碼開頭為 9 視為戰略新板）", flush=True)
+    return None
+
+
 def get_emerging_stocks():
-    print("① 取得興櫃股票清單...", flush=True)
+    print("① 取得興櫃股票清單（僅一般板）...", flush=True)
     rows = fm_get("TaiwanStockInfo")
-    emerging = [{"sid": r["stock_id"], "sname": r.get("stock_name", "")}
-                for r in rows if r.get("type") == "emerging"]
-    print(f"   → 共 {len(emerging)} 支興櫃股票", flush=True)
-    return emerging
+
+    # 取得所有興櫃
+    all_emerging = [{"sid": r["stock_id"],
+                     "sname": r.get("stock_name", ""),
+                     "industry": r.get("industry_category", "")}
+                    for r in rows if r.get("type") == "emerging"]
+
+    # 取得戰略新板清單
+    psb_ids = get_psb_stock_ids()
+
+    # 過濾
+    if psb_ids:
+        general = [s for s in all_emerging if s["sid"] not in psb_ids]
+    else:
+        # 備用過濾：依產業類別欄位含「戰略新板」字樣，或代號為 5 位且 9 開頭
+        general = [s for s in all_emerging
+                   if "戰略新板" not in s.get("industry", "")
+                   and not (len(s["sid"]) == 5 and s["sid"].startswith("9"))]
+
+    excluded = len(all_emerging) - len(general)
+    print(f"   → 興櫃總數 {len(all_emerging)} 支，排除戰略新板 {excluded} 支，剩 {len(general)} 支一般板", flush=True)
+    return general
 
 
 def get_history(sid, days=200):
