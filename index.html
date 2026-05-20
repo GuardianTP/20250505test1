@@ -152,11 +152,9 @@ tr:hover td{background:var(--paper2)}
 </header>
 
 <div class="notice">
-  <b>💡 兩階段流程：</b>系統已自動完成「籌碼面」篩選。對候選股點擊
-  <span class="link-btn" style="background:var(--B);color:#fff;border-color:var(--B);width:auto;padding:0 5px;display:inline-block;line-height:14px;height:auto">G</span>
-  Goodinfo 看承銷價、點擊
+  <b>💡 兩階段流程：</b>系統已自動完成「<b>籌碼面 + 便宜三指標</b>」雙重篩選。對候選股點擊
   <span class="link-btn" style="background:var(--B);color:#fff;border-color:var(--B);width:auto;padding:0 5px;display:inline-block;line-height:14px;height:auto">股</span>
-  看前十大股東比例，填入後自動更新期望值評估。
+  Goodinfo 股權分散表確認前十大集中度，填入後自動更新期望值評估。
 </div>
 
 <div class="layout">
@@ -190,9 +188,15 @@ tr:hover td{background:var(--paper2)}
 
   <div class="sb-group">
     <div class="sb-label">三大條件</div>
-    <div class="param-row"><span class="param-label">市價/承銷價</span>
-      <input class="param-in" id="price-ratio" type="number" value="105" min="90" max="130">
+    <div class="param-row"><span class="param-label">距高點 ≥</span>
+      <input class="param-in" id="drop-min" type="number" value="30" min="10" max="60" step="5">
       <span class="param-unit">%</span></div>
+    <div class="param-row"><span class="param-label">卷起 ≤</span>
+      <input class="param-in" id="rise-max" type="number" value="20" min="5" max="50" step="5">
+      <span class="param-unit">%</span></div>
+    <div class="param-row"><span class="param-label">PER 上限</span>
+      <input class="param-in" id="per-max" type="number" value="30" min="10" max="100" step="5">
+      <span class="param-unit">倍</span></div>
     <div class="param-row"><span class="param-label">前十大下限</span>
       <input class="param-in" id="top10-min" type="number" value="40" min="20" max="80" step="5">
       <span class="param-unit">%</span></div>
@@ -264,8 +268,10 @@ tr:hover td{background:var(--paper2)}
             <th>代號</th><th>名稱</th>
             <th>市價</th><th>均量(張)</th>
             <th>籌碼</th><th>法人(張)</th>
-            <th style="background:var(--Bbg)">承銷價*</th>
-            <th style="background:var(--Bbg)">集中度*</th>
+            <th style="background:var(--Bbg)">距高%</th>
+            <th style="background:var(--Bbg)">卷起%</th>
+            <th style="background:var(--Bbg)">PER</th>
+            <th style="background:var(--Abg)">集中度*</th>
             <th>查詢</th>
             <th>期望值</th><th>R/R</th>
             <th>倉位</th><th>狀態</th>
@@ -301,41 +307,47 @@ const P = () => ({
   mdd:      (+v('mdd')||10)/100,
   capital:  (+v('capital')||100)*10000,
   maxPos:   (+v('max-pos')||30)/100,
-  priceMax: (+v('price-ratio')||105)/100,
+  dropMin:  +v('drop-min')||30,
+  riseMax:  +v('rise-max')||20,
+  perMax:   +v('per-max')||30,
   top10Min: +v('top10-min')||40,
   chipMin:  +v('chip-min')||2,
 });
 
 function calcRow(s, p, manual){
   const m = manual[s.sid] || {};
-  const ipo = m.ipo || s.ipoPrice || null;
+  // 只剩股東集中度需要手動填
   const top10 = m.top10 != null ? m.top10 : s.top10Pct;
 
   const cur = s.curPrice;
-  const target = ipo ? +(ipo * p.gainMult).toFixed(2) : +(cur * p.gainMult).toFixed(2);
+  // 目標價：用近 6 月高點當合理價（screener 已計算好）
+  const target = s.target || +(cur * p.gainMult).toFixed(2);
   const stop   = +(cur * (1 - p.stopPct)).toFixed(2);
   const gain   = target - cur;
   const loss   = cur - stop;
   const ev     = +(p.pWin*gain + (1-p.pWin)*(-loss)).toFixed(2);
   const rr     = loss>0 ? +(gain/loss).toFixed(2) : 0;
 
-  // 三大條件
-  const priceOk  = ipo != null && cur/ipo <= p.priceMax;
+  // 三大條件（即時根據側欄重算）
+  let cheapScore = 0;
+  if(s.dropPct != null && s.dropPct >= p.dropMin) cheapScore++;
+  if(s.risePct != null && s.risePct <= p.riseMax) cheapScore++;
+  if(s.per != null && s.per > 0 && s.per < p.perMax) cheapScore++;
+  const cheapOk  = cheapScore >= 2;
   const chipOk   = (s.chipScore||0) >= p.chipMin;
   const holderOk = top10 != null && top10 >= p.top10Min;
 
-  // 是否填寫了手動資料
-  const hasIpo  = ipo != null;
+  // 是否手動填寫了股東資料
   const hasTop10 = top10 != null;
-  const filled  = hasIpo && hasTop10;
+  const filled  = hasTop10;
 
   // 狀態
   let status, finalPass = false;
-  if(!chipOk){
+  if(!chipOk || !cheapOk){
     status = 'fail';
   } else if(!filled){
-    status = 'candidate';   // 候選，待手動填寫
-  } else if(priceOk && holderOk && ev > 0){
+    status = 'candidate';   // 兩關通過，待手動填股東
+  } else if(holderOk && ev > 0){
     status = 'pass';
     finalPass = true;
   } else {
@@ -355,11 +367,10 @@ function calcRow(s, p, manual){
   }
 
   return {...s,
-    ipoPrice: ipo, top10Pct: top10,
+    top10Pct: top10,
     target, stop, ev, rr,
-    priceOk, chipOk, holderOk,
-    priceRatioPct: ipo ? +((cur/ipo-1)*100).toFixed(1) : null,
-    filled, hasIpo, hasTop10,
+    cheapOk, chipOk, holderOk,
+    filled, hasTop10,
     finalPass, status, posPct, posVal,
   };
 }
@@ -393,8 +404,8 @@ function loadData(d){
 }
 
 function updateMetrics(){
-  const cand   = rows.filter(r=>r.chipOk);
-  const filled = rows.filter(r=>r.chipOk && r.filled);
+  const cand   = rows.filter(r=>r.chipOk && r.cheapOk);
+  const filled = rows.filter(r=>r.chipOk && r.cheapOk && r.filled);
   const passed = rows.filter(r=>r.finalPass);
   setText('m-total', rows.length||'—');
   setText('m-cand',  cand.length);
@@ -449,12 +460,12 @@ function renderTable(){
 
   if(!data.length){
     if(!rows.length){
-      tbody.innerHTML = `<tr><td colspan="13"><div class="empty-state">
+      tbody.innerHTML = `<tr><td colspan="15"><div class="empty-state">
         <div class="empty-title">尚未載入資料</div>
         <div class="empty-sub">點擊右上角「載入 results.json」，<br>或將 results.json 放在同目錄並用本機伺服器開啟</div>
       </div></td></tr>`;
     } else {
-      tbody.innerHTML = `<tr><td colspan="13" style="text-align:center;padding:32px;color:var(--rule2);font-family:var(--mono);font-size:11px">無符合條件的結果</td></tr>`;
+      tbody.innerHTML = `<tr><td colspan="15" style="text-align:center;padding:32px;color:var(--rule2);font-family:var(--mono);font-size:11px">無符合條件的結果</td></tr>`;
     }
     return;
   }
@@ -463,17 +474,22 @@ function renderTable(){
     const rc = r.status==='pass'?'rp':r.status==='warn'?'rw':r.status==='candidate'?'rc':'';
     const dots = [0,1,2].map(i=>`<span class="dot ${i<(r.chipScore||0)?'dot-on':'dot-off'}"></span>`).join('');
 
-    const ipoPlaceholder = '?';
-    const ipoVal = r.ipoPrice != null ? r.ipoPrice : '';
     const top10Val = r.top10Pct != null ? r.top10Pct : '';
 
-    // 連結直接根據 sid 即時產生，不依賴 results.json 的舊欄位
+    // 三便宜指標顯示
+    const dropClr = r.dropPct >= 30 ? 'clr-g' : 'clr-r';
+    const riseClr = r.risePct != null && r.risePct <= 20 ? 'clr-g' : 'clr-r';
+    const perClr  = r.per != null && r.per > 0 && r.per < 30 ? 'clr-g' : 'clr-r';
+    const dropStr = r.dropPct != null ? r.dropPct + '%' : '—';
+    const riseStr = r.risePct != null ? '+' + r.risePct + '%' : '—';
+    const perStr  = r.per != null && r.per > 0 ? r.per : '—';
+
+    // 連結
     const goodinfoUrl = `https://goodinfo.tw/tw/StockDetail.asp?STOCK_ID=${r.sid}`;
     const goodinfoHolderUrl = `https://goodinfo.tw/tw/EquityDistributionClassHis.asp?STOCK_ID=${r.sid}`;
-    const mopsUrl = `https://mops.twse.com.tw/mops/web/t05st08?TYPEK=sii&co_id=${r.sid}`;
     const tpexUrl = `https://www.tpex.org.tw/zh-tw/mainboard/trading/info/stock-id.html?code=${r.sid}`;
     const links = `<div class="link-group">
-      <a href="${goodinfoUrl}" target="_blank" class="link-btn" title="Goodinfo 個股總覽 (查承銷價)">G</a>
+      <a href="${goodinfoUrl}" target="_blank" class="link-btn" title="Goodinfo 個股總覽">G</a>
       <a href="${goodinfoHolderUrl}" target="_blank" class="link-btn" title="Goodinfo 股東結構">股</a>
       <a href="${tpexUrl}" target="_blank" class="link-btn" title="櫃買中心">櫃</a>
     </div>`;
@@ -495,11 +511,11 @@ function renderTable(){
       <td class="mono">${r.avgVolume||'—'}</td>
       <td><div class="dots">${dots}</div></td>
       <td class="mono ${instColor}">${r.instNet>=0?'+':''}${r.instNet||0}</td>
-      <td><input class="tbl-in ${r.hasIpo?'filled':''}" type="number" step="0.1"
-        value="${ipoVal}" placeholder="${ipoPlaceholder}"
-        oninput="onManualInput('${r.sid}','ipo',this.value)"></td>
+      <td class="mono ${dropClr}">${dropStr}</td>
+      <td class="mono ${riseClr}">${riseStr}</td>
+      <td class="mono ${perClr}">${perStr}</td>
       <td><input class="tbl-in ${r.hasTop10?'filled':''}" type="number" step="0.1" min="0" max="100"
-        value="${top10Val}" placeholder="${ipoPlaceholder}"
+        value="${top10Val}" placeholder="?"
         oninput="onManualInput('${r.sid}','top10',this.value)"></td>
       <td>${links}</td>
       <td><b class="mono ${r.ev>0?'clr-g':'clr-r'}">${r.ev>=0?'+':''}${r.ev}</b></td>
