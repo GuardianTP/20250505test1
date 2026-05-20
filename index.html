@@ -152,11 +152,11 @@ tr:hover td{background:var(--paper2)}
 </header>
 
 <div class="notice">
-  <b>💡 兩階段流程：</b>系統已自動完成「籌碼面」篩選。請對候選股票點擊
-  <span class="link-btn" style="background:var(--B);color:#fff;border-color:var(--B);width:auto;padding:0 5px">G</span>
-  Goodinfo 確認承銷價、點擊
-  <span class="link-btn" style="background:var(--B);color:#fff;border-color:var(--B);width:auto;padding:0 5px">M</span>
-  MOPS 確認前十大股東比例，填入後按「重新計算」即可得到完整期望值評估。
+  <b>💡 兩階段流程：</b>系統已自動完成「籌碼面」篩選。對候選股點擊
+  <span class="link-btn" style="background:var(--B);color:#fff;border-color:var(--B);width:auto;padding:0 5px;display:inline-block;line-height:14px;height:auto">G</span>
+  Goodinfo 看承銷價、點擊
+  <span class="link-btn" style="background:var(--B);color:#fff;border-color:var(--B);width:auto;padding:0 5px;display:inline-block;line-height:14px;height:auto">股</span>
+  看前十大股東比例，填入後自動更新期望值評估。
 </div>
 
 <div class="layout">
@@ -467,10 +467,15 @@ function renderTable(){
     const ipoVal = r.ipoPrice != null ? r.ipoPrice : '';
     const top10Val = r.top10Pct != null ? r.top10Pct : '';
 
+    // 連結直接根據 sid 即時產生，不依賴 results.json 的舊欄位
+    const goodinfoUrl = `https://goodinfo.tw/tw/StockDetail.asp?STOCK_ID=${r.sid}`;
+    const goodinfoHolderUrl = `https://goodinfo.tw/tw/EquityDistributionClassHis.asp?STOCK_ID=${r.sid}`;
+    const mopsUrl = `https://mops.twse.com.tw/mops/web/t05st08?TYPEK=sii&co_id=${r.sid}`;
+    const tpexUrl = `https://www.tpex.org.tw/zh-tw/mainboard/trading/info/stock-id.html?code=${r.sid}`;
     const links = `<div class="link-group">
-      <a href="${r.goodinfoUrl}" target="_blank" class="link-btn" title="Goodinfo">G</a>
-      <a href="${r.mopsUrl}" target="_blank" class="link-btn" title="MOPS 股東結構">M</a>
-      <a href="${r.yongfengUrl}" target="_blank" class="link-btn" title="永豐金理財網">永</a>
+      <a href="${goodinfoUrl}" target="_blank" class="link-btn" title="Goodinfo 個股總覽 (查承銷價)">G</a>
+      <a href="${goodinfoHolderUrl}" target="_blank" class="link-btn" title="Goodinfo 股東結構">股</a>
+      <a href="${tpexUrl}" target="_blank" class="link-btn" title="櫃買中心">櫃</a>
     </div>`;
 
     const tag = r.status==='pass'
