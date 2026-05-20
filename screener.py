@@ -96,26 +96,39 @@ def fv(*vals):
 # ═══════════════════════════════════════════════════
 
 def get_psb_stock_ids():
-    """從櫃買中心取得戰略新板股票代號清單"""
+    """從櫃買中心戰略新板每日收盤行情頁面取得股票代號清單"""
     print("  ↳ 取得戰略新板清單以排除...", flush=True)
-    url = "https://www.tpex.org.tw/openapi/v1/tpex_psb_listing_companies"
-    try:
-        req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"})
-        with urllib.request.urlopen(req, timeout=15) as r:
-            data = json.loads(r.read().decode("utf-8"))
-            if isinstance(data, list):
-                psb_ids = set()
-                for r in data:
-                    # 嘗試不同欄位名
-                    sid = (r.get("SecuritiesCompanyCode") or r.get("stockNo")
-                           or r.get("公司代號") or r.get("Code") or "")
-                    if sid:
-                        psb_ids.add(str(sid).strip())
-                print(f"  ↳ 找到 {len(psb_ids)} 支戰略新板股票", flush=True)
-                return psb_ids
-    except Exception as e:
-        print(f"  ⚠ 無法取得戰略新板清單：{e}", flush=True)
-        print(f"  ↳ 改用代號規則辨識（5 碼開頭為 9 視為戰略新板）", flush=True)
+
+    # 民國年/月/日格式
+    today = datetime.today()
+    # 嘗試最近 7 天,因為遇到假日會沒資料
+    for i in range(7):
+        d = today - timedelta(days=i)
+        roc_date = f"{d.year - 1911}/{d.month:02d}/{d.day:02d}"
+        url = f"https://www.tpex.org.tw/web/psb/aftertrading/daily_close_quotes/stk_quote_result.php?l=zh-tw&d={roc_date}"
+        try:
+            req = urllib.request.Request(url, headers={
+                "User-Agent": "Mozilla/5.0",
+                "Referer": "https://www.tpex.org.tw/",
+            })
+            with urllib.request.urlopen(req, timeout=15) as r:
+                data = json.loads(r.read().decode("utf-8"))
+                # 回傳格式：{"aaData": [["代號","名稱",...], ...]}
+                rows = data.get("aaData") or data.get("data") or []
+                if rows:
+                    psb_ids = set()
+                    for row in rows:
+                        if isinstance(row, list) and len(row) > 0:
+                            sid = str(row[0]).strip()
+                            if sid:
+                                psb_ids.add(sid)
+                    if psb_ids:
+                        print(f"  ↳ 找到 {len(psb_ids)} 支戰略新板股票（日期 {roc_date}）", flush=True)
+                        return psb_ids
+        except Exception as e:
+            continue
+
+    print(f"  ⚠ 無法取得戰略新板清單", flush=True)
     return None
 
 
@@ -129,20 +142,18 @@ def get_emerging_stocks():
                      "industry": r.get("industry_category", "")}
                     for r in rows if r.get("type") == "emerging"]
 
-    # 取得戰略新板清單
+    # 取得戰略新板清單作為黑名單
     psb_ids = get_psb_stock_ids()
 
-    # 過濾
     if psb_ids:
         general = [s for s in all_emerging if s["sid"] not in psb_ids]
+        excluded = len(all_emerging) - len(general)
+        print(f"   → 興櫃總數 {len(all_emerging)} 支，排除戰略新板 {excluded} 支，剩 {len(general)} 支一般板", flush=True)
     else:
-        # 備用過濾：依產業類別欄位含「戰略新板」字樣，或代號為 5 位且 9 開頭
-        general = [s for s in all_emerging
-                   if "戰略新板" not in s.get("industry", "")
-                   and not (len(s["sid"]) == 5 and s["sid"].startswith("9"))]
+        # 萬一抓不到戰略新板清單，仍然繼續但跳過篩選
+        general = all_emerging
+        print(f"   ⚠ 戰略新板清單抓取失敗，這次掃描全部 {len(general)} 支興櫃（含戰略新板）", flush=True)
 
-    excluded = len(all_emerging) - len(general)
-    print(f"   → 興櫃總數 {len(all_emerging)} 支，排除戰略新板 {excluded} 支，剩 {len(general)} 支一般板", flush=True)
     return general
 
 
