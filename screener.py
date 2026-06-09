@@ -95,66 +95,18 @@ def fv(*vals):
 #  資料抓取
 # ═══════════════════════════════════════════════════
 
-def get_psb_stock_ids():
-    """從櫃買中心戰略新板每日收盤行情頁面取得股票代號清單"""
-    print("  ↳ 取得戰略新板清單以排除...", flush=True)
-
-    # 民國年/月/日格式
-    today = datetime.today()
-    # 嘗試最近 7 天,因為遇到假日會沒資料
-    for i in range(7):
-        d = today - timedelta(days=i)
-        roc_date = f"{d.year - 1911}/{d.month:02d}/{d.day:02d}"
-        url = f"https://www.tpex.org.tw/web/psb/aftertrading/daily_close_quotes/stk_quote_result.php?l=zh-tw&d={roc_date}"
-        try:
-            req = urllib.request.Request(url, headers={
-                "User-Agent": "Mozilla/5.0",
-                "Referer": "https://www.tpex.org.tw/",
-            })
-            with urllib.request.urlopen(req, timeout=15) as r:
-                data = json.loads(r.read().decode("utf-8"))
-                # 回傳格式：{"aaData": [["代號","名稱",...], ...]}
-                rows = data.get("aaData") or data.get("data") or []
-                if rows:
-                    psb_ids = set()
-                    for row in rows:
-                        if isinstance(row, list) and len(row) > 0:
-                            sid = str(row[0]).strip()
-                            if sid:
-                                psb_ids.add(sid)
-                    if psb_ids:
-                        print(f"  ↳ 找到 {len(psb_ids)} 支戰略新板股票（日期 {roc_date}）", flush=True)
-                        return psb_ids
-        except Exception as e:
-            continue
-
-    print(f"  ⚠ 無法取得戰略新板清單", flush=True)
-    return None
-
-
 def get_emerging_stocks():
-    print("① 取得興櫃股票清單（僅一般板）...", flush=True)
+    print("① 取得興櫃股票清單...", flush=True)
     rows = fm_get("TaiwanStockInfo")
 
-    # 取得所有興櫃
-    all_emerging = [{"sid": r["stock_id"],
-                     "sname": r.get("stock_name", ""),
-                     "industry": r.get("industry_category", "")}
-                    for r in rows if r.get("type") == "emerging"]
+    emerging = [{"sid": r["stock_id"],
+                 "sname": r.get("stock_name", ""),
+                 "industry": r.get("industry_category", "")}
+                for r in rows if r.get("type") == "emerging"]
 
-    # 取得戰略新板清單作為黑名單
-    psb_ids = get_psb_stock_ids()
-
-    if psb_ids:
-        general = [s for s in all_emerging if s["sid"] not in psb_ids]
-        excluded = len(all_emerging) - len(general)
-        print(f"   → 興櫃總數 {len(all_emerging)} 支，排除戰略新板 {excluded} 支，剩 {len(general)} 支一般板", flush=True)
-    else:
-        # 萬一抓不到戰略新板清單，仍然繼續但跳過篩選
-        general = all_emerging
-        print(f"   ⚠ 戰略新板清單抓取失敗，這次掃描全部 {len(general)} 支興櫃（含戰略新板）", flush=True)
-
-    return general
+    print(f"   → 共 {len(emerging)} 支興櫃股票", flush=True)
+    print(f"   ℹ 戰略新板已於 2024 年 1 月併入興櫃一般板，目前所有興櫃股票一般人皆可交易", flush=True)
+    return emerging
 
 
 def get_history(sid, days=200):
@@ -341,6 +293,7 @@ def run():
 
     for i, s in enumerate(stocks):
         sid, sname = s["sid"], s["sname"]
+        industry = s.get("industry", "")
         bar = f"[{i+1:3d}/{len(stocks)}]"
 
         # 行情（拉 200 天用於計算 6 月高低）
@@ -382,7 +335,7 @@ def run():
         ev, rr, target, stop = calc_ev(cur, target_price)
 
         rec = dict(
-            sid=sid, sname=sname,
+            sid=sid, sname=sname, industry=industry,
             curPrice=round(cur, 2),
             avgVolume=round(avg_vol / 1000, 1),
             instNet=round(inst_net / 1000, 1),
