@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-06-08 13:14:39",
-  "elapsedSec": 1811,
-  "totalScreened": 89,
+  "generatedAt": "2026-06-09 04:25:05",
+  "elapsedSec": 1860,
+  "totalScreened": 84,
   "totalCandidates": 8,
   "totalPassed": 0,
   "params": {
@@ -24,9 +24,10 @@
     {
       "sid": "7909",
       "sname": "鈺祥",
+      "industry": "半導體業",
       "curPrice": 695.0,
       "avgVolume": 144.4,
-      "instNet": -6.5,
+      "instNet": -34.5,
       "chipScore": 2,
       "chipOk": true,
       "chipReasons": [
@@ -58,9 +59,10 @@
     {
       "sid": "7818",
       "sname": "溢泰實業",
+      "industry": "其他",
       "curPrice": 63.2,
       "avgVolume": 465.5,
-      "instNet": 171.5,
+      "instNet": 36.4,
       "chipScore": 2,
       "chipOk": true,
       "chipReasons": [
@@ -90,79 +92,82 @@
       "status": "candidate"
     },
     {
-      "sid": "6659",
-      "sname": "天明製藥",
-      "curPrice": 20.5,
-      "avgVolume": 154.9,
-      "instNet": 0.0,
+      "sid": "7547",
+      "sname": "碩網",
+      "industry": "數位雲端",
+      "curPrice": 60.0,
+      "avgVolume": 120.5,
+      "instNet": 10.2,
       "chipScore": 2,
       "chipOk": true,
       "chipReasons": [
-        "無法人資料 —",
+        "法人淨買超 ✓",
         "量縮回升 ✓",
-        "橫盤收斂 ✓"
+        "尚未收斂 ✗"
       ],
       "cheapScore": 2,
       "cheapOk": true,
       "cheapReasons": [
-        "距高點 59% ✓",
-        "距低點 +8% ✓",
-        "無 PER 資料 —"
+        "距高點 36% ✓",
+        "距低點 +20% ✗",
+        "PER 24.3 ✓"
       ],
-      "high6m": 50.0,
-      "low3m": 18.9,
-      "dropPct": 59.0,
-      "risePct": 8.5,
-      "per": null,
+      "high6m": 94.2,
+      "low3m": 49.9,
+      "dropPct": 36.3,
+      "risePct": 20.2,
+      "per": 24.29,
       "top10Pct": null,
       "holderOk": false,
-      "ev": 14.84,
-      "rr": 9.61,
-      "target": 50.0,
-      "stop": 17.43,
+      "ev": 14.76,
+      "rr": 3.8,
+      "target": 94.2,
+      "stop": 51.0,
       "evPass": true,
       "status": "candidate"
     },
     {
-      "sid": "6755",
-      "sname": "連鋐科技",
-      "curPrice": 16.7,
-      "avgVolume": 86.1,
-      "instNet": 0.0,
+      "sid": "7715",
+      "sname": "裕山",
+      "industry": "綠能環保",
+      "curPrice": 26.85,
+      "avgVolume": 79.6,
+      "instNet": 15.0,
       "chipScore": 2,
       "chipOk": true,
       "chipReasons": [
-        "無法人資料 —",
+        "法人淨買超 ✓",
         "量縮回升 ✓",
-        "橫盤收斂 ✓"
+        "尚未收斂 ✗"
       ],
-      "cheapScore": 2,
+      "cheapScore": 3,
       "cheapOk": true,
       "cheapReasons": [
-        "距高點 47% ✓",
-        "距低點 +16% ✓",
-        "無 PER 資料 —"
+        "距高點 39% ✓",
+        "距低點 +2% ✓",
+        "PER 11.2 ✓"
       ],
-      "high6m": 31.75,
-      "low3m": 14.45,
-      "dropPct": 47.4,
-      "risePct": 15.6,
-      "per": null,
+      "high6m": 44.0,
+      "low3m": 26.4,
+      "dropPct": 39.0,
+      "risePct": 1.7,
+      "per": 11.19,
       "top10Pct": null,
       "holderOk": false,
-      "ev": 7.15,
-      "rr": 6.0,
-      "target": 31.75,
-      "stop": 14.19,
+      "ev": 7.62,
+      "rr": 4.26,
+      "target": 44.0,
+      "stop": 22.82,
       "evPass": true,
       "status": "candidate"
     },
     {
       "sid": "6473",
       "sname": "美賣*",
+      "industry": "數位雲端",
       "curPrice": 8.4,
       "avgVolume": 451.1,
-      "instNet": -418.0,
+      "instNet": -412.0,
       "chipScore": 2,
       "chipOk": true,
       "chipReasons": [
@@ -194,6 +199,7 @@
     {
       "sid": "6483",
       "sname": "原創生醫",
+      "industry": "生技醫療業",
       "curPrice": 13.0,
       "avgVolume": 81.0,
       "instNet": 0.0,
@@ -228,9 +234,10 @@
     {
       "sid": "2248",
       "sname": "華勝-KY",
+      "industry": "電機機械",
       "curPrice": 55.5,
       "avgVolume": 74.2,
-      "instNet": 30.0,
+      "instNet": 29.0,
       "chipScore": 2,
       "chipOk": true,
       "chipReasons": [
@@ -262,9 +269,10 @@
     {
       "sid": "6936",
       "sname": "永鴻生技",
+      "industry": "農業科技",
       "curPrice": 34.3,
       "avgVolume": 68.8,
-      "instNet": 34.0,
+      "instNet": 35.0,
       "chipScore": 2,
       "chipOk": true,
       "chipReasons": [
@@ -298,6 +306,7 @@
     {
       "sid": "6483",
       "sname": "原創生醫",
+      "industry": "生技醫療業",
       "curPrice": 13.0,
       "avgVolume": 81.0,
       "instNet": 0.0,
@@ -332,6 +341,7 @@
     {
       "sid": "7886",
       "sname": "科建",
+      "industry": "半導體業",
       "curPrice": 167.5,
       "avgVolume": 69.0,
       "instNet": 2.0,
@@ -366,6 +376,7 @@
     {
       "sid": "7854",
       "sname": "佐茂",
+      "industry": "電腦及週邊設備業",
       "curPrice": 88.4,
       "avgVolume": 66.3,
       "instNet": 3.0,
@@ -398,11 +409,47 @@
       "status": "fail"
     },
     {
+      "sid": "7715",
+      "sname": "裕山",
+      "industry": "綠能環保",
+      "curPrice": 26.85,
+      "avgVolume": 79.6,
+      "instNet": 15.0,
+      "chipScore": 2,
+      "chipOk": true,
+      "chipReasons": [
+        "法人淨買超 ✓",
+        "量縮回升 ✓",
+        "尚未收斂 ✗"
+      ],
+      "cheapScore": 3,
+      "cheapOk": true,
+      "cheapReasons": [
+        "距高點 39% ✓",
+        "距低點 +2% ✓",
+        "PER 11.2 ✓"
+      ],
+      "high6m": 44.0,
+      "low3m": 26.4,
+      "dropPct": 39.0,
+      "risePct": 1.7,
+      "per": 11.19,
+      "top10Pct": null,
+      "holderOk": false,
+      "ev": 7.62,
+      "rr": 4.26,
+      "target": 44.0,
+      "stop": 22.82,
+      "evPass": true,
+      "status": "candidate"
+    },
+    {
       "sid": "2248",
       "sname": "華勝-KY",
+      "industry": "電機機械",
       "curPrice": 55.5,
       "avgVolume": 74.2,
-      "instNet": 30.0,
+      "instNet": 29.0,
       "chipScore": 2,
       "chipOk": true,
       "chipReasons": [
@@ -434,9 +481,10 @@
     {
       "sid": "6936",
       "sname": "永鴻生技",
+      "industry": "農業科技",
       "curPrice": 34.3,
       "avgVolume": 68.8,
-      "instNet": 34.0,
+      "instNet": 35.0,
       "chipScore": 2,
       "chipOk": true,
       "chipReasons": [
@@ -466,11 +514,47 @@
       "status": "candidate"
     },
     {
+      "sid": "7547",
+      "sname": "碩網",
+      "industry": "數位雲端",
+      "curPrice": 60.0,
+      "avgVolume": 120.5,
+      "instNet": 10.2,
+      "chipScore": 2,
+      "chipOk": true,
+      "chipReasons": [
+        "法人淨買超 ✓",
+        "量縮回升 ✓",
+        "尚未收斂 ✗"
+      ],
+      "cheapScore": 2,
+      "cheapOk": true,
+      "cheapReasons": [
+        "距高點 36% ✓",
+        "距低點 +20% ✗",
+        "PER 24.3 ✓"
+      ],
+      "high6m": 94.2,
+      "low3m": 49.9,
+      "dropPct": 36.3,
+      "risePct": 20.2,
+      "per": 24.29,
+      "top10Pct": null,
+      "holderOk": false,
+      "ev": 14.76,
+      "rr": 3.8,
+      "target": 94.2,
+      "stop": 51.0,
+      "evPass": true,
+      "status": "candidate"
+    },
+    {
       "sid": "7818",
       "sname": "溢泰實業",
+      "industry": "其他",
       "curPrice": 63.2,
       "avgVolume": 465.5,
-      "instNet": 171.5,
+      "instNet": 36.4,
       "chipScore": 2,
       "chipOk": true,
       "chipReasons": [
@@ -502,9 +586,10 @@
     {
       "sid": "6473",
       "sname": "美賣*",
+      "industry": "數位雲端",
       "curPrice": 8.4,
       "avgVolume": 451.1,
-      "instNet": -418.0,
+      "instNet": -412.0,
       "chipScore": 2,
       "chipOk": true,
       "chipReasons": [
@@ -536,9 +621,10 @@
     {
       "sid": "7909",
       "sname": "鈺祥",
+      "industry": "半導體業",
       "curPrice": 695.0,
       "avgVolume": 144.4,
-      "instNet": -6.5,
+      "instNet": -34.5,
       "chipScore": 2,
       "chipOk": true,
       "chipReasons": [
@@ -568,113 +654,12 @@
       "status": "candidate"
     },
     {
-      "sid": "6755",
-      "sname": "連鋐科技",
-      "curPrice": 16.7,
-      "avgVolume": 86.1,
-      "instNet": 0.0,
-      "chipScore": 2,
-      "chipOk": true,
-      "chipReasons": [
-        "無法人資料 —",
-        "量縮回升 ✓",
-        "橫盤收斂 ✓"
-      ],
-      "cheapScore": 2,
-      "cheapOk": true,
-      "cheapReasons": [
-        "距高點 47% ✓",
-        "距低點 +16% ✓",
-        "無 PER 資料 —"
-      ],
-      "high6m": 31.75,
-      "low3m": 14.45,
-      "dropPct": 47.4,
-      "risePct": 15.6,
-      "per": null,
-      "top10Pct": null,
-      "holderOk": false,
-      "ev": 7.15,
-      "rr": 6.0,
-      "target": 31.75,
-      "stop": 14.19,
-      "evPass": true,
-      "status": "candidate"
-    },
-    {
-      "sid": "6659",
-      "sname": "天明製藥",
-      "curPrice": 20.5,
-      "avgVolume": 154.9,
-      "instNet": 0.0,
-      "chipScore": 2,
-      "chipOk": true,
-      "chipReasons": [
-        "無法人資料 —",
-        "量縮回升 ✓",
-        "橫盤收斂 ✓"
-      ],
-      "cheapScore": 2,
-      "cheapOk": true,
-      "cheapReasons": [
-        "距高點 59% ✓",
-        "距低點 +8% ✓",
-        "無 PER 資料 —"
-      ],
-      "high6m": 50.0,
-      "low3m": 18.9,
-      "dropPct": 59.0,
-      "risePct": 8.5,
-      "per": null,
-      "top10Pct": null,
-      "holderOk": false,
-      "ev": 14.84,
-      "rr": 9.61,
-      "target": 50.0,
-      "stop": 17.43,
-      "evPass": true,
-      "status": "candidate"
-    },
-    {
-      "sid": "6903",
-      "sname": "巨漢",
-      "curPrice": 385.5,
-      "avgVolume": 1040.9,
-      "instNet": 607.3,
-      "chipScore": 2,
-      "chipOk": true,
-      "chipReasons": [
-        "法人淨買超 ✓",
-        "量縮回升 ✓",
-        "尚未收斂 ✗"
-      ],
-      "cheapScore": 1,
-      "cheapOk": false,
-      "cheapReasons": [
-        "距高點僅 15% ✗",
-        "距低點 +48% ✗",
-        "PER 23.8 ✓"
-      ],
-      "high6m": 451.5,
-      "low3m": 260.0,
-      "dropPct": 14.6,
-      "risePct": 48.3,
-      "per": 23.77,
-      "top10Pct": null,
-      "holderOk": false,
-      "ev": 10.28,
-      "rr": 1.14,
-      "target": 451.5,
-      "stop": 327.68,
-      "evPass": true,
-      "status": "fail"
-    },
-    {
       "sid": "7805",
       "sname": "威聯通",
+      "industry": "電腦及週邊設備業",
       "curPrice": 745.0,
       "avgVolume": 155.9,
-      "instNet": 169.2,
+      "instNet": 167.1,
       "chipScore": 2,
       "chipOk": true,
       "chipReasons": [
@@ -706,9 +691,10 @@
     {
       "sid": "7805",
       "sname": "威聯通",
+      "industry": "數位雲端",
       "curPrice": 745.0,
       "avgVolume": 155.9,
-      "instNet": 169.2,
+      "instNet": 167.1,
       "chipScore": 2,
       "chipOk": true,
       "chipReasons": [
@@ -740,6 +726,7 @@
     {
       "sid": "7893",
       "sname": "睿信",
+      "industry": "電子工業",
       "curPrice": 199.5,
       "avgVolume": 54.4,
       "instNet": 4.0,
@@ -774,9 +761,10 @@
     {
       "sid": "7920",
       "sname": "瀚陽*",
+      "industry": "化學生技醫療",
       "curPrice": 15.4,
       "avgVolume": 8881.3,
-      "instNet": 867.8,
+      "instNet": 865.8,
       "chipScore": 2,
       "chipOk": true,
       "chipReasons": [
@@ -808,9 +796,10 @@
     {
       "sid": "5267",
       "sname": "龍翩",
+      "industry": "光電業",
       "curPrice": 56.5,
       "avgVolume": 283.9,
-      "instNet": 12.0,
+      "instNet": 9.0,
       "chipScore": 2,
       "chipOk": true,
       "chipReasons": [
@@ -840,79 +829,12 @@
       "status": "fail"
     },
     {
-      "sid": "5262",
-      "sname": "立達",
-      "curPrice": 47.0,
-      "avgVolume": 191.8,
-      "instNet": 23.0,
-      "chipScore": 2,
-      "chipOk": true,
-      "chipReasons": [
-        "法人淨買超 ✓",
-        "量縮回升 ✓",
-        "尚未收斂 ✗"
-      ],
-      "cheapScore": 1,
-      "cheapOk": false,
-      "cheapReasons": [
-        "距高點僅 30% ✗",
-        "距低點 +14% ✓",
-        "無 PER 資料 —"
-      ],
-      "high6m": 66.9,
-      "low3m": 41.05,
-      "dropPct": 29.7,
-      "risePct": 14.5,
-      "per": null,
-      "top10Pct": null,
-      "holderOk": false,
-      "ev": 7.77,
-      "rr": 2.82,
-      "target": 66.9,
-      "stop": 39.95,
-      "evPass": true,
-      "status": "fail"
-    },
-    {
-      "sid": "5254",
-      "sname": "欣訊科技",
-      "curPrice": 43.4,
-      "avgVolume": 195.2,
-      "instNet": 5.0,
-      "chipScore": 2,
-      "chipOk": true,
-      "chipReasons": [
-        "法人淨買超 ✓",
-        "量能型態不符 ✗",
-        "橫盤收斂 ✓"
-      ],
-      "cheapScore": 1,
-      "cheapOk": false,
-      "cheapReasons": [
-        "距高點 31% ✓",
-        "距低點 +42% ✗",
-        "無 PER 資料 —"
-      ],
-      "high6m": 63.0,
-      "low3m": 30.5,
-      "dropPct": 31.1,
-      "risePct": 42.3,
-      "per": null,
-      "top10Pct": null,
-      "holderOk": false,
-      "ev": 7.85,
-      "rr": 3.01,
-      "target": 63.0,
-      "stop": 36.89,
-      "evPass": true,
-      "status": "fail"
-    },
-    {
       "sid": "6434",
       "sname": "達輝光電",
+      "industry": "光電業",
       "curPrice": 17.75,
       "avgVolume": 1791.4,
-      "instNet": 11.0,
+      "instNet": 7.6,
       "chipScore": 2,
       "chipOk": true,
       "chipReasons": [
@@ -944,6 +866,7 @@
     {
       "sid": "6572",
       "sname": "博錸",
+      "industry": "生技醫療業",
       "curPrice": 8.03,
       "avgVolume": 194.2,
       "instNet": 8.0,
@@ -978,9 +901,10 @@
     {
       "sid": "6559",
       "sname": "研晶",
+      "industry": "光電業",
       "curPrice": 21.1,
       "avgVolume": 211.6,
-      "instNet": 19.5,
+      "instNet": 26.5,
       "chipScore": 2,
       "chipOk": true,
       "chipReasons": [
@@ -1010,11 +934,47 @@
       "status": "fail"
     },
     {
+      "sid": "6586",
+      "sname": "醣基",
+      "industry": "生技醫療業",
+      "curPrice": 68.8,
+      "avgVolume": 609.9,
+      "instNet": 34.3,
+      "chipScore": 2,
+      "chipOk": true,
+      "chipReasons": [
+        "法人淨買超 ✓",
+        "量縮回升 ✓",
+        "尚未收斂 ✗"
+      ],
+      "cheapScore": 0,
+      "cheapOk": false,
+      "cheapReasons": [
+        "距高點僅 6% ✗",
+        "距低點 +202% ✗",
+        "無 PER 資料 —"
+      ],
+      "high6m": 73.4,
+      "low3m": 22.75,
+      "dropPct": 6.3,
+      "risePct": 202.4,
+      "per": null,
+      "top10Pct": null,
+      "holderOk": false,
+      "ev": -2.11,
+      "rr": 0.45,
+      "target": 73.4,
+      "stop": 58.48,
+      "evPass": false,
+      "status": "fail"
+    },
+    {
       "sid": "4980",
       "sname": "佐臻",
+      "industry": "電子零組件業",
       "curPrice": 43.95,
       "avgVolume": 269.5,
-      "instNet": 10.8,
+      "instNet": 9.8,
       "chipScore": 2,
       "chipOk": true,
       "chipReasons": [
@@ -1046,6 +1006,7 @@
     {
       "sid": "6549",
       "sname": "景凱",
+      "industry": "生技醫療業",
       "curPrice": 7.53,
       "avgVolume": 232.8,
       "instNet": 1.0,
@@ -1080,9 +1041,10 @@
     {
       "sid": "6027",
       "sname": "德信",
+      "industry": "金融業",
       "curPrice": 12.8,
       "avgVolume": 112.8,
-      "instNet": 10.0,
+      "instNet": 5.0,
       "chipScore": 2,
       "chipOk": true,
       "chipReasons": [
@@ -1114,9 +1076,10 @@
     {
       "sid": "5859",
       "sname": "遠壽",
+      "industry": "金融業",
       "curPrice": 13.45,
       "avgVolume": 185.4,
-      "instNet": 10.0,
+      "instNet": 2.0,
       "chipScore": 2,
       "chipOk": true,
       "chipReasons": [
@@ -1148,6 +1111,7 @@
     {
       "sid": "7892",
       "sname": "元鈦科",
+      "industry": "電腦及週邊設備業",
       "curPrice": 829.0,
       "avgVolume": 120.7,
       "instNet": 4.6,
@@ -1182,6 +1146,7 @@
     {
       "sid": "7893",
       "sname": "睿信",
+      "industry": "電子零組件業",
       "curPrice": 199.5,
       "avgVolume": 54.4,
       "instNet": 4.0,
@@ -1216,6 +1181,7 @@
     {
       "sid": "7899",
       "sname": "景美",
+      "industry": "半導體業",
       "curPrice": 446.0,
       "avgVolume": 367.5,
       "instNet": 151.7,
@@ -1250,6 +1216,7 @@
     {
       "sid": "7911",
       "sname": "阿波羅電力",
+      "industry": "綠能環保",
       "curPrice": 150.0,
       "avgVolume": 400.2,
       "instNet": 4.0,
@@ -1284,9 +1251,10 @@
     {
       "sid": "7912",
       "sname": "新聿科",
+      "industry": "電子零組件業",
       "curPrice": 473.0,
       "avgVolume": 259.4,
-      "instNet": 129.0,
+      "instNet": 68.1,
       "chipScore": 2,
       "chipOk": true,
       "chipReasons": [
@@ -1318,6 +1286,7 @@
     {
       "sid": "7913",
       "sname": "通寶半導體",
+      "industry": "半導體業",
       "curPrice": 350.0,
       "avgVolume": 207.0,
       "instNet": 16.0,
@@ -1352,6 +1321,7 @@
     {
       "sid": "7879",
       "sname": "益材科技",
+      "industry": "電機機械",
       "curPrice": 106.5,
       "avgVolume": 372.6,
       "instNet": 23.0,
@@ -1386,9 +1356,10 @@
     {
       "sid": "7858",
       "sname": "芝普",
+      "industry": "化學工業",
       "curPrice": 171.0,
       "avgVolume": 152.5,
-      "instNet": 6.3,
+      "instNet": 5.3,
       "chipScore": 2,
       "chipOk": true,
       "chipReasons": [
@@ -1420,9 +1391,10 @@
     {
       "sid": "7861",
       "sname": "貝爾威勒",
+      "industry": "電子零組件業",
       "curPrice": 1385.0,
       "avgVolume": 178.0,
-      "instNet": 3.2,
+      "instNet": 3.3,
       "chipScore": 2,
       "chipOk": true,
       "chipReasons": [
@@ -1454,9 +1426,10 @@
     {
       "sid": "7866",
       "sname": "丹立",
+      "industry": "半導體業",
       "curPrice": 199.0,
       "avgVolume": 331.5,
-      "instNet": 29.5,
+      "instNet": 29.4,
       "chipScore": 2,
       "chipOk": true,
       "chipReasons": [
@@ -1488,6 +1461,7 @@
     {
       "sid": "7868",
       "sname": "聖育",
+      "industry": "資訊服務業",
       "curPrice": 78.4,
       "avgVolume": 190.7,
       "instNet": 11.0,
@@ -1522,6 +1496,7 @@
     {
       "sid": "7871",
       "sname": "安立璽榮-KY",
+      "industry": "生技醫療業",
       "curPrice": 70.8,
       "avgVolume": 792.6,
       "instNet": 2.0,
@@ -1556,9 +1531,10 @@
     {
       "sid": "1563",
       "sname": "巧新",
+      "industry": "電機機械",
       "curPrice": 60.5,
       "avgVolume": 4123.2,
-      "instNet": 4915.7,
+      "instNet": 4988.7,
       "chipScore": 1,
       "chipOk": false,
       "chipReasons": [
@@ -1588,11 +1564,47 @@
       "status": "fail"
     },
     {
+      "sid": "6903",
+      "sname": "巨漢",
+      "industry": "其他電子業",
+      "curPrice": 385.5,
+      "avgVolume": 1040.9,
+      "instNet": -75.0,
+      "chipScore": 1,
+      "chipOk": false,
+      "chipReasons": [
+        "法人未買超 ✗",
+        "量縮回升 ✓",
+        "尚未收斂 ✗"
+      ],
+      "cheapScore": 1,
+      "cheapOk": false,
+      "cheapReasons": [
+        "距高點僅 15% ✗",
+        "距低點 +48% ✗",
+        "PER 23.8 ✓"
+      ],
+      "high6m": 451.5,
+      "low3m": 260.0,
+      "dropPct": 14.6,
+      "risePct": 48.3,
+      "per": 23.77,
+      "top10Pct": null,
+      "holderOk": false,
+      "ev": 10.28,
+      "rr": 1.14,
+      "target": 451.5,
+      "stop": 327.68,
+      "evPass": true,
+      "status": "fail"
+    },
+    {
       "sid": "7751",
       "sname": "竑騰",
+      "industry": "電子工業",
       "curPrice": 1430.0,
       "avgVolume": 394.7,
-      "instNet": -277.7,
+      "instNet": -245.2,
       "chipScore": 1,
       "chipOk": false,
       "chipReasons": [
@@ -1624,9 +1636,10 @@
     {
       "sid": "6968",
       "sname": "萬達寵物",
+      "industry": "居家生活",
       "curPrice": 42.5,
       "avgVolume": 121.5,
-      "instNet": 66.1,
+      "instNet": 83.1,
       "chipScore": 1,
       "chipOk": false,
       "chipReasons": [
@@ -1658,9 +1671,10 @@
     {
       "sid": "6739",
       "sname": "竹陞科技",
+      "industry": "其他電子業",
       "curPrice": 1160.0,
       "avgVolume": 242.1,
-      "instNet": -11.4,
+      "instNet": -12.6,
       "chipScore": 1,
       "chipOk": false,
       "chipReasons": [
@@ -1692,9 +1706,10 @@
     {
       "sid": "7703",
       "sname": "銳澤",
+      "industry": "其他電子業",
       "curPrice": 194.5,
       "avgVolume": 244.3,
-      "instNet": -89.7,
+      "instNet": -135.6,
       "chipScore": 1,
       "chipOk": false,
       "chipReasons": [
@@ -1724,45 +1739,12 @@
       "status": "fail"
     },
     {
-      "sid": "7715",
-      "sname": "裕山",
-      "curPrice": 26.85,
-      "avgVolume": 79.6,
-      "instNet": -33.0,
-      "chipScore": 1,
-      "chipOk": false,
-      "chipReasons": [
-        "法人未買超 ✗",
-        "量縮回升 ✓",
-        "尚未收斂 ✗"
-      ],
-      "cheapScore": 3,
-      "cheapOk": true,
-      "cheapReasons": [
-        "距高點 39% ✓",
-        "距低點 +2% ✓",
-        "PER 11.2 ✓"
-      ],
-      "high6m": 44.0,
-      "low3m": 26.4,
-      "dropPct": 39.0,
-      "risePct": 1.7,
-      "per": 11.19,
-      "top10Pct": null,
-      "holderOk": false,
-      "ev": 7.62,
-      "rr": 4.26,
-      "target": 44.0,
-      "stop": 22.82,
-      "evPass": true,
-      "status": "fail"
-    },
-    {
       "sid": "7714",
       "sname": "創泓科技",
+      "industry": "數位雲端",
       "curPrice": 143.0,
       "avgVolume": 252.2,
-      "instNet": 23.9,
+      "instNet": 43.1,
       "chipScore": 1,
       "chipOk": false,
       "chipReasons": [
@@ -1794,9 +1776,10 @@
     {
       "sid": "4749",
       "sname": "新應材",
+      "industry": "光電業",
       "curPrice": 947.0,
       "avgVolume": 1701.2,
-      "instNet": -3003.8,
+      "instNet": -3165.2,
       "chipScore": 1,
       "chipOk": false,
       "chipReasons": [
@@ -1828,9 +1811,10 @@
     {
       "sid": "7728",
       "sname": "光焱科技",
+      "industry": "其他電子業",
       "curPrice": 714.0,
       "avgVolume": 118.4,
-      "instNet": 11.8,
+      "instNet": 4.7,
       "chipScore": 1,
       "chipOk": false,
       "chipReasons": [
@@ -1862,9 +1846,10 @@
     {
       "sid": "6925",
       "sname": "意藍",
+      "industry": "數位雲端",
       "curPrice": 79.5,
       "avgVolume": 557.4,
-      "instNet": -484.7,
+      "instNet": -441.7,
       "chipScore": 1,
       "chipOk": false,
       "chipReasons": [
@@ -1894,45 +1879,12 @@
       "status": "fail"
     },
     {
-      "sid": "7547",
-      "sname": "碩網",
-      "curPrice": 60.0,
-      "avgVolume": 120.5,
-      "instNet": -0.8,
-      "chipScore": 1,
-      "chipOk": false,
-      "chipReasons": [
-        "法人未買超 ✗",
-        "量縮回升 ✓",
-        "尚未收斂 ✗"
-      ],
-      "cheapScore": 2,
-      "cheapOk": true,
-      "cheapReasons": [
-        "距高點 36% ✓",
-        "距低點 +20% ✗",
-        "PER 24.3 ✓"
-      ],
-      "high6m": 94.2,
-      "low3m": 49.9,
-      "dropPct": 36.3,
-      "risePct": 20.2,
-      "per": 24.29,
-      "top10Pct": null,
-      "holderOk": false,
-      "ev": 14.76,
-      "rr": 3.8,
-      "target": 94.2,
-      "stop": 51.0,
-      "evPass": true,
-      "status": "fail"
-    },
-    {
       "sid": "6910",
       "sname": "德鴻",
+      "industry": "數位雲端",
       "curPrice": 28.7,
       "avgVolume": 58.0,
-      "instNet": 2.0,
+      "instNet": 6.0,
       "chipScore": 1,
       "chipOk": false,
       "chipReasons": [
@@ -1964,9 +1916,10 @@
     {
       "sid": "6725",
       "sname": "矽科宏晟",
+      "industry": "其他電子業",
       "curPrice": 281.5,
       "avgVolume": 411.6,
-      "instNet": -403.6,
+      "instNet": -205.5,
       "chipScore": 1,
       "chipOk": false,
       "chipReasons": [
@@ -1998,6 +1951,7 @@
     {
       "sid": "6403",
       "sname": "群登",
+      "industry": "通信網路業",
       "curPrice": 5.0,
       "avgVolume": 459.2,
       "instNet": 0.0,
@@ -2032,9 +1986,10 @@
     {
       "sid": "7792",
       "sname": "安葆",
+      "industry": "其他電子業",
       "curPrice": 257.0,
       "avgVolume": 287.0,
-      "instNet": -221.5,
+      "instNet": -206.8,
       "chipScore": 1,
       "chipOk": false,
       "chipReasons": [
@@ -2066,9 +2021,10 @@
     {
       "sid": "2072",
       "sname": "世紀風電",
+      "industry": "鋼鐵工業",
       "curPrice": 189.0,
       "avgVolume": 879.6,
-      "instNet": 1411.9,
+      "instNet": 1414.0,
       "chipScore": 1,
       "chipOk": false,
       "chipReasons": [
@@ -2100,6 +2056,7 @@
     {
       "sid": "3616",
       "sname": "泓辰",
+      "industry": "電機機械",
       "curPrice": 11.45,
       "avgVolume": 1178.0,
       "instNet": 0.0,
@@ -2134,6 +2091,7 @@
     {
       "sid": "4773",
       "sname": "高福",
+      "industry": "化學工業",
       "curPrice": 39.0,
       "avgVolume": 68.0,
       "instNet": 0.0,
@@ -2147,20 +2105,20 @@
       "cheapScore": 0,
       "cheapOk": false,
       "cheapReasons": [
-        "距高點僅 28% ✗",
+        "距高點僅 24% ✗",
         "距低點 +73% ✗",
         "無 PER 資料 —"
       ],
-      "high6m": 53.9,
+      "high6m": 51.3,
       "low3m": 22.6,
-      "dropPct": 27.6,
+      "dropPct": 24.0,
       "risePct": 72.6,
       "per": null,
       "top10Pct": null,
       "holderOk": false,
-      "ev": 5.56,
-      "rr": 2.55,
-      "target": 53.9,
+      "ev": 4.13,
+      "rr": 2.1,
+      "target": 51.3,
       "stop": 33.15,
       "evPass": true,
       "status": "fail"
@@ -2168,9 +2126,10 @@
     {
       "sid": "7794",
       "sname": "宏碁智新",
+      "industry": "居家生活",
       "curPrice": 33.0,
       "avgVolume": 186.6,
-      "instNet": -149.6,
+      "instNet": -139.6,
       "chipScore": 1,
       "chipOk": false,
       "chipReasons": [
@@ -2202,9 +2161,10 @@
     {
       "sid": "7821",
       "sname": "神數",
+      "industry": "其他電子業",
       "curPrice": 43.6,
       "avgVolume": 339.2,
-      "instNet": 327.6,
+      "instNet": 335.4,
       "chipScore": 1,
       "chipOk": false,
       "chipReasons": [
@@ -2236,9 +2196,10 @@
     {
       "sid": "7820",
       "sname": "立盈",
+      "industry": "綠能環保",
       "curPrice": 119.0,
       "avgVolume": 83.0,
-      "instNet": 85.0,
+      "instNet": 79.0,
       "chipScore": 1,
       "chipOk": false,
       "chipReasons": [
@@ -2270,9 +2231,10 @@
     {
       "sid": "3485",
       "sname": "敘豐",
+      "industry": "光電業",
       "curPrice": 320.0,
       "avgVolume": 872.2,
-      "instNet": 225.2,
+      "instNet": 221.6,
       "chipScore": 1,
       "chipOk": false,
       "chipReasons": [
@@ -2304,9 +2266,10 @@
     {
       "sid": "7842",
       "sname": "天能綠電",
+      "industry": "綠能環保",
       "curPrice": 105.0,
       "avgVolume": 101.2,
-      "instNet": -82.5,
+      "instNet": -79.8,
       "chipScore": 1,
       "chipOk": false,
       "chipReasons": [
@@ -2338,9 +2301,10 @@
     {
       "sid": "6983",
       "sname": "華洋精機",
+      "industry": "其他電子業",
       "curPrice": 351.0,
       "avgVolume": 269.4,
-      "instNet": 16.4,
+      "instNet": 15.7,
       "chipScore": 1,
       "chipOk": false,
       "chipReasons": [
@@ -2370,11 +2334,82 @@
       "status": "fail"
     },
     {
+      "sid": "5248",
+      "sname": "景傳",
+      "industry": "光電業",
+      "curPrice": 37.9,
+      "avgVolume": 127.9,
+      "instNet": 2.0,
+      "chipScore": 1,
+      "chipOk": false,
+      "chipReasons": [
+        "法人淨買超 ✓",
+        "量能型態不符 ✗",
+        "尚未收斂 ✗"
+      ],
+      "cheapScore": 1,
+      "cheapOk": false,
+      "cheapReasons": [
+        "距高點 69% ✓",
+        "距低點 +109% ✗",
+        "無 PER 資料 —"
+      ],
+      "high6m": 124.0,
+      "low3m": 18.15,
+      "dropPct": 69.4,
+      "risePct": 108.8,
+      "per": null,
+      "top10Pct": null,
+      "holderOk": false,
+      "ev": 44.79,
+      "rr": 15.13,
+      "target": 124.0,
+      "stop": 32.21,
+      "evPass": true,
+      "status": "fail"
+    },
+    {
+      "sid": "5262",
+      "sname": "立達",
+      "industry": "半導體業",
+      "curPrice": 47.0,
+      "avgVolume": 191.8,
+      "instNet": -13.0,
+      "chipScore": 1,
+      "chipOk": false,
+      "chipReasons": [
+        "法人未買超 ✗",
+        "量縮回升 ✓",
+        "尚未收斂 ✗"
+      ],
+      "cheapScore": 1,
+      "cheapOk": false,
+      "cheapReasons": [
+        "距高點僅 30% ✗",
+        "距低點 +14% ✓",
+        "無 PER 資料 —"
+      ],
+      "high6m": 66.9,
+      "low3m": 41.05,
+      "dropPct": 29.7,
+      "risePct": 14.5,
+      "per": null,
+      "top10Pct": null,
+      "holderOk": false,
+      "ev": 7.77,
+      "rr": 2.82,
+      "target": 66.9,
+      "stop": 39.95,
+      "evPass": true,
+      "status": "fail"
+    },
+    {
       "sid": "5246",
       "sname": "勵威",
+      "industry": "半導體業",
       "curPrice": 168.5,
       "avgVolume": 695.3,
-      "instNet": -6.9,
+      "instNet": -11.0,
       "chipScore": 1,
       "chipOk": false,
       "chipReasons": [
@@ -2406,6 +2441,7 @@
     {
       "sid": "6493",
       "sname": "雷虎生",
+      "industry": "生技醫療業",
       "curPrice": 27.3,
       "avgVolume": 50.8,
       "instNet": 0.0,
@@ -2438,11 +2474,47 @@
       "status": "fail"
     },
     {
+      "sid": "5254",
+      "sname": "欣訊科技",
+      "industry": "電子零組件業",
+      "curPrice": 43.4,
+      "avgVolume": 195.2,
+      "instNet": -3.0,
+      "chipScore": 1,
+      "chipOk": false,
+      "chipReasons": [
+        "法人未買超 ✗",
+        "量能型態不符 ✗",
+        "橫盤收斂 ✓"
+      ],
+      "cheapScore": 1,
+      "cheapOk": false,
+      "cheapReasons": [
+        "距高點 31% ✓",
+        "距低點 +42% ✗",
+        "無 PER 資料 —"
+      ],
+      "high6m": 63.0,
+      "low3m": 30.5,
+      "dropPct": 31.1,
+      "risePct": 42.3,
+      "per": null,
+      "top10Pct": null,
+      "holderOk": false,
+      "ev": 7.85,
+      "rr": 3.01,
+      "target": 63.0,
+      "stop": 36.89,
+      "evPass": true,
+      "status": "fail"
+    },
+    {
       "sid": "6555",
       "sname": "榮炭",
+      "industry": "電子零組件業",
       "curPrice": 21.05,
       "avgVolume": 213.2,
-      "instNet": -8.0,
+      "instNet": -3.0,
       "chipScore": 1,
       "chipOk": false,
       "chipReasons": [
@@ -2474,9 +2546,10 @@
     {
       "sid": "6564",
       "sname": "安特羅",
+      "industry": "生技醫療業",
       "curPrice": 17.25,
       "avgVolume": 103.7,
-      "instNet": 0.0,
+      "instNet": -2.0,
       "chipScore": 1,
       "chipOk": false,
       "chipReasons": [
@@ -2506,11 +2579,12 @@
       "status": "fail"
     },
     {
-      "sid": "6565",
-      "sname": "物聯",
-      "curPrice": 21.5,
-      "avgVolume": 129.1,
-      "instNet": 6.0,
+      "sid": "6580",
+      "sname": "台睿",
+      "industry": "生技醫療業",
+      "curPrice": 14.7,
+      "avgVolume": 162.9,
+      "instNet": 10.0,
       "chipScore": 1,
       "chipOk": false,
       "chipReasons": [
@@ -2518,64 +2592,31 @@
         "量能型態不符 ✗",
         "尚未收斂 ✗"
       ],
-      "cheapScore": 1,
-      "cheapOk": false,
+      "cheapScore": 2,
+      "cheapOk": true,
       "cheapReasons": [
-        "距高點 41% ✓",
-        "距低點 +54% ✗",
+        "距高點 38% ✓",
+        "距低點 +8% ✓",
         "無 PER 資料 —"
       ],
-      "high6m": 36.3,
-      "low3m": 14.0,
-      "dropPct": 40.8,
-      "risePct": 53.6,
+      "high6m": 23.6,
+      "low3m": 13.55,
+      "dropPct": 37.7,
+      "risePct": 8.5,
       "per": null,
       "top10Pct": null,
       "holderOk": false,
-      "ev": 6.69,
-      "rr": 4.58,
-      "target": 36.3,
-      "stop": 18.27,
+      "ev": 3.9,
+      "rr": 4.03,
+      "target": 23.6,
+      "stop": 12.49,
       "evPass": true,
-      "status": "fail"
-    },
-    {
-      "sid": "6586",
-      "sname": "醣基",
-      "curPrice": 68.8,
-      "avgVolume": 609.9,
-      "instNet": -40.7,
-      "chipScore": 1,
-      "chipOk": false,
-      "chipReasons": [
-        "法人未買超 ✗",
-        "量縮回升 ✓",
-        "尚未收斂 ✗"
-      ],
-      "cheapScore": 0,
-      "cheapOk": false,
-      "cheapReasons": [
-        "距高點僅 6% ✗",
-        "距低點 +202% ✗",
-        "無 PER 資料 —"
-      ],
-      "high6m": 73.4,
-      "low3m": 22.75,
-      "dropPct": 6.3,
-      "risePct": 202.4,
-      "per": null,
-      "top10Pct": null,
-      "holderOk": false,
-      "ev": -2.11,
-      "rr": 0.45,
-      "target": 73.4,
-      "stop": 58.48,
-      "evPass": false,
       "status": "fail"
     },
     {
       "sid": "5863",
       "sname": "瑞興銀",
+      "industry": "金融業",
       "curPrice": 11.0,
       "avgVolume": 58.4,
       "instNet": 0.0,
@@ -2610,9 +2651,10 @@
     {
       "sid": "7887",
       "sname": "宇川精材",
+      "industry": "半導體業",
       "curPrice": 211.5,
       "avgVolume": 684.7,
-      "instNet": 31.5,
+      "instNet": 31.3,
       "chipScore": 1,
       "chipOk": false,
       "chipReasons": [
@@ -2644,6 +2686,7 @@
     {
       "sid": "7882",
       "sname": "倍利創投",
+      "industry": "其他",
       "curPrice": 21.1,
       "avgVolume": 245.0,
       "instNet": -1.0,
@@ -2678,6 +2721,7 @@
     {
       "sid": "7902",
       "sname": "宇越生醫*",
+      "industry": "生技醫療業",
       "curPrice": 37.0,
       "avgVolume": 190.0,
       "instNet": 0.0,
@@ -2712,9 +2756,10 @@
     {
       "sid": "7856",
       "sname": "漢測",
+      "industry": "半導體業",
       "curPrice": 2930.0,
       "avgVolume": 138.0,
-      "instNet": -57.9,
+      "instNet": -48.2,
       "chipScore": 1,
       "chipOk": false,
       "chipReasons": [
@@ -2746,6 +2791,7 @@
     {
       "sid": "7880",
       "sname": "聖凰",
+      "industry": "半導體業",
       "curPrice": 178.0,
       "avgVolume": 87.3,
       "instNet": 2.1,
@@ -2780,6 +2826,7 @@
     {
       "sid": "7872",
       "sname": "登豐",
+      "industry": "半導體業",
       "curPrice": 54.4,
       "avgVolume": 115.9,
       "instNet": -0.1,
@@ -2812,10 +2859,11 @@
       "status": "fail"
     },
     {
-      "sid": "7915",
-      "sname": "廌家",
-      "curPrice": 541.0,
-      "avgVolume": 55.4,
+      "sid": "7876",
+      "sname": "鼎晉生技",
+      "industry": "生技醫療業",
+      "curPrice": 36.2,
+      "avgVolume": 149.2,
       "instNet": 0.0,
       "chipScore": 1,
       "chipOk": false,
@@ -2824,101 +2872,34 @@
         "量縮回升 ✓",
         "尚未收斂 ✗"
       ],
-      "cheapScore": 1,
-      "cheapOk": false,
+      "cheapScore": 2,
+      "cheapOk": true,
       "cheapReasons": [
-        "距高點 39% ✓",
-        "距低點 +40% ✗",
+        "距高點 48% ✓",
+        "距低點 +7% ✓",
         "無 PER 資料 —"
       ],
-      "high6m": 883.0,
-      "low3m": 386.0,
-      "dropPct": 38.7,
-      "risePct": 40.2,
+      "high6m": 69.0,
+      "low3m": 33.75,
+      "dropPct": 47.5,
+      "risePct": 7.3,
       "per": null,
       "top10Pct": null,
       "holderOk": false,
-      "ev": 151.58,
-      "rr": 4.21,
-      "target": 883.0,
-      "stop": 459.85,
-      "evPass": true,
-      "status": "fail"
-    },
-    {
-      "sid": "7920",
-      "sname": "瀚陽*",
-      "curPrice": 15.4,
-      "avgVolume": 8881.3,
-      "instNet": 0.0,
-      "chipScore": 1,
-      "chipOk": false,
-      "chipReasons": [
-        "無法人資料 —",
-        "量縮回升 ✓",
-        "歷史資料不足 —"
-      ],
-      "cheapScore": 0,
-      "cheapOk": false,
-      "cheapReasons": [
-        "距高點僅 25% ✗",
-        "距低點 +161% ✗",
-        "無 PER 資料 —"
-      ],
-      "high6m": 20.6,
-      "low3m": 5.91,
-      "dropPct": 25.2,
-      "risePct": 160.6,
-      "per": null,
-      "top10Pct": null,
-      "holderOk": false,
-      "ev": 1.82,
-      "rr": 2.25,
-      "target": 20.6,
-      "stop": 13.09,
-      "evPass": true,
-      "status": "fail"
-    },
-    {
-      "sid": "7781",
-      "sname": "昕力資*",
-      "curPrice": 29.75,
-      "avgVolume": 2926.7,
-      "instNet": 0.0,
-      "chipScore": 1,
-      "chipOk": false,
-      "chipReasons": [
-        "無法人資料 —",
-        "量縮回升 ✓",
-        "尚未收斂 ✗"
-      ],
-      "cheapScore": 0,
-      "cheapOk": false,
-      "cheapReasons": [
-        "距高點僅 26% ✗",
-        "距低點 +95% ✗",
-        "無 PER 資料 —"
-      ],
-      "high6m": 40.4,
-      "low3m": 15.25,
-      "dropPct": 26.4,
-      "risePct": 95.1,
-      "per": null,
-      "top10Pct": null,
-      "holderOk": false,
-      "ev": 3.85,
-      "rr": 2.39,
-      "target": 40.4,
-      "stop": 25.29,
+      "ev": 15.6,
+      "rr": 6.04,
+      "target": 69.0,
+      "stop": 30.77,
       "evPass": true,
       "status": "fail"
     },
     {
       "sid": "7738",
       "sname": "東聯互動",
+      "industry": "數位雲端",
       "curPrice": 167.5,
       "avgVolume": 65.9,
-      "instNet": -34.9,
+      "instNet": -27.9,
       "chipScore": 0,
       "chipOk": false,
       "chipReasons": [
@@ -2950,9 +2931,10 @@
     {
       "sid": "5271",
       "sname": "紘通",
+      "industry": "電子零組件業",
       "curPrice": 15.6,
       "avgVolume": 1204.4,
-      "instNet": -15.0,
+      "instNet": -64.0,
       "chipScore": 0,
       "chipOk": false,
       "chipReasons": [
@@ -2982,45 +2964,12 @@
       "status": "fail"
     },
     {
-      "sid": "5248",
-      "sname": "景傳",
-      "curPrice": 37.9,
-      "avgVolume": 127.9,
-      "instNet": -46.0,
-      "chipScore": 0,
-      "chipOk": false,
-      "chipReasons": [
-        "法人未買超 ✗",
-        "量能型態不符 ✗",
-        "尚未收斂 ✗"
-      ],
-      "cheapScore": 1,
-      "cheapOk": false,
-      "cheapReasons": [
-        "距高點 69% ✓",
-        "距低點 +109% ✗",
-        "無 PER 資料 —"
-      ],
-      "high6m": 124.0,
-      "low3m": 18.15,
-      "dropPct": 69.4,
-      "risePct": 108.8,
-      "per": null,
-      "top10Pct": null,
-      "holderOk": false,
-      "ev": 44.79,
-      "rr": 15.13,
-      "target": 124.0,
-      "stop": 32.21,
-      "evPass": true,
-      "status": "fail"
-    },
-    {
       "sid": "6467",
       "sname": "泰合",
+      "industry": "生技醫療業",
       "curPrice": 121.5,
       "avgVolume": 171.5,
-      "instNet": -0.5,
+      "instNet": -1.5,
       "chipScore": 0,
       "chipOk": false,
       "chipReasons": [
@@ -3052,9 +3001,10 @@
     {
       "sid": "5297",
       "sname": "廣化",
+      "industry": "半導體業",
       "curPrice": 88.4,
       "avgVolume": 1072.2,
-      "instNet": -64.7,
+      "instNet": -54.7,
       "chipScore": 0,
       "chipOk": false,
       "chipReasons": [
@@ -3086,6 +3036,7 @@
     {
       "sid": "6563",
       "sname": "映智",
+      "industry": "半導體業",
       "curPrice": 26.9,
       "avgVolume": 145.5,
       "instNet": -5.0,
@@ -3118,11 +3069,12 @@
       "status": "fail"
     },
     {
-      "sid": "6580",
-      "sname": "台睿",
-      "curPrice": 14.7,
-      "avgVolume": 162.9,
-      "instNet": 0.0,
+      "sid": "6565",
+      "sname": "物聯",
+      "industry": "數位雲端",
+      "curPrice": 21.5,
+      "avgVolume": 129.1,
+      "instNet": -6.0,
       "chipScore": 0,
       "chipOk": false,
       "chipReasons": [
@@ -3130,33 +3082,34 @@
         "量能型態不符 ✗",
         "尚未收斂 ✗"
       ],
-      "cheapScore": 2,
-      "cheapOk": true,
+      "cheapScore": 1,
+      "cheapOk": false,
       "cheapReasons": [
-        "距高點 38% ✓",
-        "距低點 +8% ✓",
+        "距高點 41% ✓",
+        "距低點 +54% ✗",
         "無 PER 資料 —"
       ],
-      "high6m": 23.6,
-      "low3m": 13.55,
-      "dropPct": 37.7,
-      "risePct": 8.5,
+      "high6m": 36.3,
+      "low3m": 14.0,
+      "dropPct": 40.8,
+      "risePct": 53.6,
       "per": null,
       "top10Pct": null,
       "holderOk": false,
-      "ev": 3.9,
-      "rr": 4.03,
-      "target": 23.6,
-      "stop": 12.49,
+      "ev": 6.69,
+      "rr": 4.58,
+      "target": 36.3,
+      "stop": 18.27,
       "evPass": true,
       "status": "fail"
     },
     {
       "sid": "6407",
       "sname": "相互",
+      "industry": "電子零組件業",
       "curPrice": 30.35,
       "avgVolume": 1328.2,
-      "instNet": -44.5,
+      "instNet": -151.6,
       "chipScore": 0,
       "chipOk": false,
       "chipReasons": [
@@ -3188,6 +3141,7 @@
     {
       "sid": "7885",
       "sname": "宏羚",
+      "industry": "其他電子業",
       "curPrice": 28.35,
       "avgVolume": 158.7,
       "instNet": 0.0,
@@ -3222,6 +3176,7 @@
     {
       "sid": "7888",
       "sname": "麗寶新藥",
+      "industry": "生技醫療業",
       "curPrice": 38.3,
       "avgVolume": 130.3,
       "instNet": 0.0,
@@ -3256,6 +3211,7 @@
     {
       "sid": "7865",
       "sname": "金聯成",
+      "industry": "綠能環保",
       "curPrice": 59.6,
       "avgVolume": 250.8,
       "instNet": -4.0,
@@ -3284,40 +3240,6 @@
       "rr": 1.55,
       "target": 73.5,
       "stop": 50.66,
-      "evPass": true,
-      "status": "fail"
-    },
-    {
-      "sid": "8119",
-      "sname": "公信",
-      "curPrice": 10.35,
-      "avgVolume": 307.4,
-      "instNet": 0.0,
-      "chipScore": 0,
-      "chipOk": false,
-      "chipReasons": [
-        "無法人資料 —",
-        "量能型態不符 ✗",
-        "尚未收斂 ✗"
-      ],
-      "cheapScore": 1,
-      "cheapOk": false,
-      "cheapReasons": [
-        "距高點 45% ✓",
-        "距低點 +48% ✗",
-        "無 PER 資料 —"
-      ],
-      "high6m": 18.7,
-      "low3m": 7.0,
-      "dropPct": 44.7,
-      "risePct": 47.9,
-      "per": null,
-      "top10Pct": null,
-      "holderOk": false,
-      "ev": 3.9,
-      "rr": 5.39,
-      "target": 18.7,
-      "stop": 8.8,
       "evPass": true,
       "status": "fail"
     }
