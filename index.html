@@ -157,6 +157,31 @@ tr:hover td{background:var(--paper2)}
   Goodinfo 股權分散表確認前十大集中度，填入後自動更新期望值評估。
 </div>
 
+<details style="background:var(--paper2);border:1px solid var(--rule);border-radius:var(--radius);margin:12px 24px 0;font-size:12px;color:#555">
+  <summary style="padding:9px 14px;cursor:pointer;font-weight:500;list-style:none;display:flex;align-items:center;gap:6px">
+    <span style="font-family:var(--mono);font-size:10px;color:var(--rule2)">ℹ</span>
+    資料來源與名單說明
+    <span style="margin-left:auto;font-size:10px;color:var(--rule2);font-family:var(--mono)">點擊展開</span>
+  </summary>
+  <div style="padding:0 14px 12px;line-height:1.7">
+    <p style="margin-bottom:6px"><b>清單來源：</b>FinMind API（<code style="background:var(--paper);padding:1px 4px;border-radius:2px;font-family:var(--mono);font-size:11px">TaiwanStockInfo</code> 端點，type=emerging）</p>
+    <p style="margin-bottom:6px"><b>關於數量差異：</b>網路常見「興櫃約 350 家」是約略數字，FinMind 可能會包含：</p>
+    <ul style="margin-left:18px;margin-bottom:6px">
+      <li>本國公司（一般板）— 主要部分</li>
+      <li>外國第一上櫃（KY 股、F 股）— 例如以「KY」結尾的公司</li>
+      <li>已申請轉上櫃但尚未掛牌的「準上櫃」股票</li>
+      <li>剛登錄但成交量極低的新興公司</li>
+    </ul>
+    <p style="margin-bottom:6px"><b>戰略新板：</b>已於 2024 年 1 月正式併入興櫃一般板，目前所有興櫃股票一般人都可以交易。</p>
+    <p style="margin-bottom:6px"><b>查證方法：</b>對候選股點擊
+      <span class="link-btn" style="background:var(--B);color:#fff;border-color:var(--B);width:auto;padding:0 5px;display:inline-block;line-height:14px;height:auto">G</span>
+      Goodinfo，會顯示股票所屬類別與市場別；點擊
+      <span class="link-btn" style="background:var(--B);color:#fff;border-color:var(--B);width:auto;padding:0 5px;display:inline-block;line-height:14px;height:auto">櫃</span>
+      櫃買中心則可看到該股票在交易所的正式分類。</p>
+    <p><b>有疑慮的標的：</b>列表中「產業類別」欄會顯示 FinMind 提供的分類，名稱含「KY」「-DR」或產業分類空白者，請額外查證。</p>
+  </div>
+</details>
+
 <div class="layout">
 
 <aside class="sidebar">
@@ -506,7 +531,14 @@ function renderTable(){
 
     return `<tr class="${rc}">
       <td class="mono" style="font-weight:500">${r.sid}</td>
-      <td>${r.sname}</td>
+      <td>${r.sname}${
+        r.industry && (r.industry.includes('KY') || r.industry === '') 
+          ? ` <span style="background:var(--Abg);color:var(--A);font-size:9px;padding:1px 4px;border-radius:2px;font-family:var(--mono);margin-left:3px" title="${r.industry || '產業分類空白'}">⚠</span>`
+          : ''
+      }${r.sname.includes('KY') || r.sname.includes('-DR') 
+          ? ` <span style="background:var(--Abg);color:var(--A);font-size:9px;padding:1px 4px;border-radius:2px;font-family:var(--mono);margin-left:3px" title="KY股/外國公司">外</span>`
+          : ''
+      }</td>
       <td class="mono">${r.curPrice}</td>
       <td class="mono">${r.avgVolume||'—'}</td>
       <td><div class="dots">${dots}</div></td>
